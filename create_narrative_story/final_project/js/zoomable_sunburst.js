@@ -19,7 +19,7 @@ var zsb_svg = d3.select("#zoomable_sunburst").append("svg")
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
-var yelp_tree = { "name":"Yelp Database","children":[] };
+var yelp_tree = { "name":"YouTube sDatabase","children":[] };
 // tooltip for mouseover functionality
 var zsb_tooltip = floatingTooltip('zsb_tooltip', 240);
 

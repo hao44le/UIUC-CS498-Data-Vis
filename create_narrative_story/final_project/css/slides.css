@@ -65,7 +65,7 @@ p {
 /* Yelp Data
 * --------------------------------------- */
 #survey{
-	background-image: url(../imgs/survey.jpg);
+	background-image: url(../imgs/video.jpg);
 	padding: 3% 60% 6% 6%;
 }
 /* Reviews Overview
@@ -166,7 +166,7 @@ p {
 #content_div, #acks_div {
 	padding: 10px;
     background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-    background: rgba(255, 255, 255, 0.6);	
+    background: rgba(255, 255, 255, 0.85);
 }
 #content_div, #acks_div h1,h2,h3,p {
     font-weight: bold;
