@@ -117,9 +117,9 @@ function bubbleChart() {
    * array for each element in the rawData input.
    */
   function createNodes(rawData) {
-    // Use the max reviews in the data as the max in the scale's domain
-    // note we have to ensure the reviews is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.reviews; });
+    // Use the max views in the data as the max in the scale's domain
+    // note we have to ensure the views is a number.
+    var maxAmount = d3.max(rawData, function (d) { return +d.views; });
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
@@ -134,11 +134,11 @@ function bubbleChart() {
     var myNodes = rawData.map(function (d) {
       return {
         id: d.id,
-        radius: radiusScale(+d.reviews),
-        reviews: +d.reviews,
-        price: +d.price,
-        stars: +d.stars,
-        name: d.yelp_category,
+        radius: radiusScale(+d.views),
+        views: +d.views,
+        likes: +d.likes,
+        comment_count: +d.comment_count,
+        name: d.category,
         state: d.state,
         x: Math.random() * 900,
         y: Math.random() * 800
@@ -146,7 +146,7 @@ function bubbleChart() {
     });
 
     // sort them to prevent occlusion of smaller nodes.
-    myNodes.sort(function (a, b) { return b.reviews - a.reviews; });
+    myNodes.sort(function (a, b) { return b.views - a.views; });
     
     return myNodes;
   }
@@ -237,11 +237,11 @@ function bubbleChart() {
   }  
 
   function nodeStarPosX(d) {
-    return starCenters[Math.floor(d.stars)].x;
+    return starCenters[Math.floor(d.comment_count)].x;
   }
 
   function nodeStarPosY(d) {
-    return starCenters[Math.floor(d.stars)].y;
+    return starCenters[Math.floor(d.comment_count)].y;
   }  
 
   /*
@@ -252,7 +252,7 @@ function bubbleChart() {
    */
   function groupBubbles() {
     hideTitles('.state');
-    hideTitles('.stars');
+    hideTitles('.comment_count');
 
     d3.selectAll("#bubble_state_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()    
@@ -272,7 +272,7 @@ function bubbleChart() {
    * yearCenter of their data's year.
    */
   function splitStateBubbles() {
-    hideTitles('.stars');
+    hideTitles('.comment_count');
     showTitles(stateTitle, 'state');
 
     d3.selectAll("#bubble_state_annotation").remove()
@@ -292,7 +292,7 @@ function bubbleChart() {
 
   function splitStarBubbles() {
     hideTitles('.state');
-    showTitles(starTitle, 'stars');
+    showTitles(starTitle, 'comment_count');
 
     d3.selectAll("#bubble_state_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()
@@ -362,11 +362,11 @@ function bubbleChart() {
                   '<span class="name">State: </span><span class="value">' +
                   d.state +
                   '</span><br/>' +
-                  '<span class="name">Reviews: </span><span class="value">' +
-                  addCommas(d.reviews) +
+                  '<span class="name">Views: </span><span class="value">' +
+                  addCommas(d.views) +
                   '</span><br/>' +
                   '<span class="name">Average Stars: </span><span class="value">' +
-                  d.stars +
+                  d.comment_count +
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
@@ -393,7 +393,7 @@ function bubbleChart() {
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'state') {
       splitStateBubbles();
-    } else if (displayName === 'stars') {
+    } else if (displayName === 'comment_count') {
       splitStarBubbles();
     }else {
       groupBubbles();
