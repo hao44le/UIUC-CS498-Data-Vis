@@ -20,41 +20,65 @@ function bubbleChart() {
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
+  var countryCenters = {
+    'Japan': { x: 3 * width / 16, y: height / 3 },
+    'India': { x: width / 3, y: 2* height / 3 },
+    'Mexico': { x: 3 * width / 8, y: height / 3 },
+    'France': { x: width / 2, y: 2* height / 3 },
+    'Canada': { x: 5 * width / 8, y: height / 3 },
+    'United States': { x: 2 * width / 3, y: 2* height / 3 },
+    'United Kingdom': { x: 13 * width / 16, y: height / 3 }
+  }
+
   var categoryCenters = {
-    'Film & Animation': { x: 3 * width / 16, y: height / 3 },
-    'Autos & Vehicles': { x: width / 3, y: 2* height / 3 },
-    'Music': { x: 3 * width / 8, y: height / 3 },
-    'Pets & Animals': { x: width / 2, y: 2* height / 3 },
-    'Sports': { x: 5 * width / 8, y: height / 3 },
-    'Travel & Events': { x: 2 * width / 3, y: 2* height / 3 },
-    'Gaming': { x: 13 * width / 16, y: height / 3 }
+    'Film & Animation': { x: 2 * width / 19, y: height / 3 },
+    'Music': { x: 3 * width / 17, y: 2* height / 3 },
+    'Pets & Animals': { x: 4 * width / 19, y: height / 3 },
+    'Sports': { x: 4 * width / 17, y: 2* height / 3 },
+    'Travel & Events': { x: 6 * width / 19, y: height / 3 },
+    'Autos & Vehicles': { x: 5 * width / 17, y: 2* height / 3 },
+    'Gaming': { x: 8 * width / 19, y: height / 3 },
+    'People & Blogs': { x: 7 * width / 17, y: 2* height / 3 },
+    'Comedy': { x: 10 * width / 19, y: height / 3 },
+    'Entertainment': { x: 9 * width / 17, y: 2* height / 3 },
+    'News & Politics': { x: 12 * width / 19, y: height / 3 },
+    'Howto & Style': { x: 11 * width / 17, y: 2* height / 3 },
+    'Education': { x: 14 * width / 19, y: height / 3 },
+    'Science & Technology': { x: 13 * width / 17, y: 2* height / 3 },
+    'Nonprofits & Activism': { x: 16 * width / 19, y: height / 3 },
+    'Movies': { x: 15 * width / 17, y: 2* height / 3 },
+    'Shows': { x: 17 * width / 19, y: height / 3 }
   }
 
-  var starCenters = {
-    1: { x: width / 3, y: 2* height / 3 },
-    2: { x: 3 * width / 8, y: height / 3 },
-    3: { x: width / 2, y: 2* height / 3 },
-    4: { x: 5 * width / 8, y: height / 3 },
-    5: { x: 2 * width / 3, y: 2* height / 3 }
+  // X locations of the country titles.
+  var countryTitle = {
+    'Japan': { x: width / 10, y: height / 8 },
+    'India': { x: 9 * width / 40, y: 12 * height / 20 },
+    'Mexico': { x: 7 * width / 20, y: height / 8 },
+    'France': { x: width / 2, y: 12 * height / 20 },
+    'Canada': { x: 13 * width / 20, y: height / 8 },
+    'United States': { x: 31 * width / 40, y: 12 * height / 20 },
+    'United Kingdom': { x: 9 * width / 10, y: height / 8 }
   }
 
-  // X locations of the category titles.
-  var categoryTitle = {
-    'Film & Animation': { x: width / 10, y: height / 8 },
-    'Autos & Vehicles': { x: 9 * width / 40, y: 9 * height / 20 },
-    'Music': { x: 7 * width / 20, y: height / 8 },
-    'Pets & Animals': { x: width / 2, y: 9 * height / 20 },
-    'Sports': { x: 13 * width / 20, y: height / 8 },
-    'Travel & Events': { x: 31 * width / 40, y: 9 * height / 20 },
-    'Gaming': { x: 9 * width / 10, y: height / 8 }
-  }
-
-  var starTitle = {
-    1: { x: width / 5, y: 8 * height / 20 },
-    2: { x: 13 * width / 40, y: height / 9 },
-    3: { x: width / 2, y: 8 * height / 20 },
-    4: { x: 27 * width / 40, y: height / 9 },
-    5: { x: 4 * width / 5, y: 8 * height / 20 }
+  var categoryTitles = {
+    'Film & Animation': { x: 1 * width / 19, y: height / 6 },
+    'Music': { x: 2 * width / 17, y: 3 * height / 6 },
+    'Pets & Animals': { x: 4 * width / 19, y: height / 6 },
+    'Sports': { x: 4.5 * width / 17, y: 5.5* height / 6 },
+    'Travel & Events': { x: 6 * width / 19, y: height / 6 },
+    'Autos & Vehicles': { x: 5.5 * width / 17, y: 3* height / 6 },
+    'Gaming': { x: 8 * width / 19, y: height / 6 },
+    'People & Blogs': { x: 7.5 * width / 17, y: 5.5* height / 6 },
+    'Comedy': { x: 10.5 * width / 19, y: height / 6 },
+    'Entertainment': { x: 9.5 * width / 17, y: 3* height / 6 },
+    'News & Politics': { x: 13 * width / 19, y: height / 6 },
+    'Howto & Style': { x: 12 * width / 17, y: 5.5* height / 6 },
+    'Education': { x: 15 * width / 19, y: height / 4.5 },
+    'Science & Technology': { x: 14 * width / 17, y: 3* height / 6 },
+    'Nonprofits & Activism': { x: 17 * width / 19, y: height / 4 },
+    'Movies': { x: 16 * width / 17, y: 5.5* height / 6 },
+    'Shows': { x: 18 * width / 19, y: height / 3.7 }
   }
 
   // @v4 strength to apply to the position forces
@@ -101,9 +125,7 @@ function bubbleChart() {
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleOrdinal(d3.schemeCategory20c)
-    .domain(['Film & Animation', 'Autos & Vehicles', 'Music', 'Pets & Animals'
-      , 'Sports', 'Travel & Events', 'Gaming', 'People & Blogs', 'Comedy', 'Entertainment'
-    ,'News & Politics', 'Howto & Style', 'Education', 'Science & Technology', 'Nonprofits & Activism', 'Shows']);
+    .domain(['Japan','India','Mexico','France','Canada','United States','United Kingdom']);
 
   /*
    * This data manipulation function takes the raw data from
@@ -126,7 +148,7 @@ function bubbleChart() {
     // @v4: new flattened scale names.
     var radiusScale = d3.scalePow()
       .exponent(0.5)
-      .range([8, 140])
+      .range([6, 100])
       .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
@@ -140,6 +162,7 @@ function bubbleChart() {
         likes: +d.likes,
         comment_count: +d.comment_count,
         category: d.category,
+        country: d.country,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
@@ -188,8 +211,8 @@ function bubbleChart() {
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.category); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.category)).darker(); })
+      .attr('fill', function (d) { return fillColor(d.country); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.country)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -236,12 +259,12 @@ function bubbleChart() {
     return categoryCenters[d.category].y;
   }  
 
-  function nodeStarPosX(d) {
-    return starCenters[Math.floor(d.comment_count)].x;
+  function nodeCountryPosX(d) {
+    return countryCenters[d.country].x;
   }
 
-  function nodeStarPosY(d) {
-    return starCenters[Math.floor(d.comment_count)].y;
+  function nodeCountryPosY(d) {
+    return countryCenters[d.country].y;
   }  
 
   /*
@@ -252,7 +275,7 @@ function bubbleChart() {
    */
   function groupBubbles() {
     hideTitles('.category');
-    hideTitles('.comment_count');
+    hideTitles('.country');
 
     d3.selectAll("#bubble_category_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()    
@@ -272,8 +295,8 @@ function bubbleChart() {
    * yearCenter of their data's year.
    */
   function splitCategoryBubbles() {
-    hideTitles('.comment_count');
-    showTitles(categoryTitle, 'category');
+    hideTitles('.country');
+    showTitles(categoryTitles, 'category');
 
     d3.selectAll("#bubble_category_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()
@@ -290,20 +313,20 @@ function bubbleChart() {
     simulation.alpha(1).restart();
   }
 
-  function splitStarBubbles() {
+    function splitCountryBubbles() {
     hideTitles('.category');
-    showTitles(starTitle, 'comment_count');
+    showTitles(countryTitle, 'country');
 
     d3.selectAll("#bubble_category_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
-      .attr("id", "bubble_star_annotation")
-      .call(bubble_star_makeAnnotations);
-    
+      .attr("id", "bubble_star_annotation").attr('text-anchor', 'middle')
+      .call(bubble_state_makeAnnotations)
+
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
-    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStarPosX));
-    simulation.force('y', d3.forceY().strength(forceStrength).y(nodeStarPosY));
+    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeCountryPosX));
+    simulation.force('y', d3.forceY().strength(forceStrength).y(nodeCountryPosY));
 
     // @v4 We can reset the alpha value and restart the simulation
     simulation.alpha(1).restart();
@@ -331,21 +354,7 @@ function bubbleChart() {
       .attr('x', function (d) { return title[d].x; })
       .attr('y', function (d) { return title[d].y; })
       .attr('text-anchor', 'middle')
-      .text(function (d) { 
-        if (d == 1) {
-          return '⭐';
-        } else if (d == 2) {
-          return '⭐⭐';
-        } else if (d == 3) {
-          return '⭐⭐⭐';
-        } else if (d == 4) {
-          return '⭐⭐⭐⭐';
-        } else if (d == 5) {
-          return '⭐⭐⭐⭐⭐';
-        } else {
-          return d; 
-        }
-      });
+        .text(function(d) { return d });
   }
 
   /*
@@ -358,6 +367,9 @@ function bubbleChart() {
 
     var content = '<span class="name">Category: </span><span class="value">' +
                   d.category +
+                  '</span><br/>' +
+                  '<span class="name">Country: </span><span class="value">' +
+                  d.country +
                   '</span><br/>' +
                   '<span class="name">Views: </span><span class="value">' +
                   addCommas(d.views) +
@@ -378,7 +390,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.category)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.country)));
 
     tooltip.hideTooltip();
   }
@@ -393,8 +405,8 @@ function bubbleChart() {
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'category') {
       splitCategoryBubbles();
-    } else if (displayName === 'comment_count') {
-      splitStarBubbles();
+    } else if (displayName === 'country') {
+      splitCountryBubbles();
     }else {
       groupBubbles();
     }

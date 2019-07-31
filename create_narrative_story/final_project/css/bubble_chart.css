@@ -37,8 +37,14 @@
   margin-top: 10px;
 }
 
-.state, .stars {
+.country {
   font-size: 21px;
+  fill: #aaa;
+  cursor: default;
+}
+
+.category {
+  font-size: 12px;
   fill: #aaa;
   cursor: default;
 }

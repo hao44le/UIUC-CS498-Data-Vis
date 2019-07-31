@@ -4,11 +4,11 @@ const bubble_state_annotations = [
     type: d3.annotationLabel,
     note: {
     title: "Majority of Reviews",
-    label: "The state of NV contains the majority of the Yelp Dataset reviews",
+    label: "The United Kingdom contains the majority of the YouTube Dataset reviews",
     wrap: 190
     },
-    x: 500,
-    y: 550,
+    x: 900,
+    y: 250,
     dy: -160,
     dx: -120
 }]
@@ -21,14 +21,14 @@ const bubble_star_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Average 2-4 Stars",
-    label: "Regardless of state, the average for star ratings is balanced between 2 to 4 stars",
+    title: "Most popular Category",
+    label: "Regardless of country, the MUSIC contains the majority of the YouTube Dataset reviews",
     wrap: 190
     },
-    x: 500,
-    y: 200,
-    dy: 0,
-    dx: 0
+    x: 100,
+    y: 350,
+    dy: -10,
+    dx: -10
 }]
 
 const bubble_star_makeAnnotations = d3.annotation()
