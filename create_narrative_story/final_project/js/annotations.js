@@ -40,20 +40,20 @@ const zoom_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Clustered in NV",
-    label: "Top 25 most reviewed is mostly clustered around NV as shown by the outer ring with the same location",
+    title: "Aggregated Others",
+    label: "Collection of other categories other than Music",
     wrap: 190
     },
-    x: 300,
-    y: 175,
-    dy: -75,
-    dx: -120
+    x: 450,
+    y: 100,
+    dy: -5,
+    dx: -280
 },
 {
     type: d3.annotationLabel,
     note: {
-    title: "Top Most Reviewed",
-    label: "American (New) restaurant category is the most reviewed restaurant category aggregated across all reviews",
+    title: "Top Most Viewed",
+    label: "Music category is the most viewed video category aggregated across all views",
     wrap: 190
     },
     x: 650,
@@ -64,14 +64,14 @@ const zoom_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Aggregated Others",
-    label: "Collection of other categories ranked 25 and onwards",
+    title: "Clustered in United Kingdom",
+    label: "Top 8 most viewed is mostly clustered around United Kingdom as shown by the outer ring with the same location",
     wrap: 190
     },
-    x: 700,
-    y: 500,
-    dy: 150,
-    dx: 200
+    x: 750,
+    y: 570,
+    dy: 20,
+    dx: 180
 }]
 
 const zoom_makeAnnotations = d3.annotation()

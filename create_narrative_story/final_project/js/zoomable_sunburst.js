@@ -37,14 +37,11 @@ d3.csv("data/sunburst.csv", function(error, data) {
                     {"name":"Mexico","children":[]},
                     {"name":"United States","children":[]},
                     {"name": "France", "children": []},
-                    {"name": "India", "children": []},
                     {"name": "Japan", "children": []},
                     {"name":"United Kingdom","children":[]},
                 ]
             };
             youtube_tree.children[youtube_tree.children.length] = youtube_category;
-            console.log(youtube_category)
-            console.log(youtube_tree)
             transverseTree(youtube_tree, d);
         }
     });
@@ -106,7 +103,7 @@ function transverseTree(tree, d) {
         if (child.name == d.youtube_category) {
             child.children.forEach(function(grandchild) {
                 if(grandchild.name == d.state) {
-                    var youtube_video = {"name":d.name,"reviews":d.comment_count};
+                    var youtube_video = {"name":d.name,"reviews":d.views};
                     grandchild.children.push(youtube_video);
                     newcat = false; // we matched the category so it's not new
                 }
