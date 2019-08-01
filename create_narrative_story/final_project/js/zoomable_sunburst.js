@@ -1,7 +1,6 @@
 var width = 1024,
     height = 768,
     radius = (Math.min(width, height) / 2) - 10;
-var formatNumber = d3.format(",d");
 var x = d3.scaleLinear()
     .range([0, 2 * Math.PI]);
 var y = d3.scaleSqrt()
@@ -19,36 +18,38 @@ var zsb_svg = d3.select("#zoomable_sunburst").append("svg")
     .attr("height", height)
     .append("g")
     .attr("transform", "translate(" + width / 2 + "," + (height / 2) + ")");
-var yelp_tree = { "name":"YouTube sDatabase","children":[] };
+var youtube_tree = { "name":"YouTube Database","children":[] };
 // tooltip for mouseover functionality
 var zsb_tooltip = floatingTooltip('zsb_tooltip', 240);
 
-d3.csv("data/zoomable_sunburst.csv", function(error, data) {
+d3.csv("data/sunburst.csv", function(error, data) {
     if (error) throw error;
 
     data.forEach(function(d) {
         // iterate through each row of csv data
-        var newcat = transverseTree(yelp_tree, d); // is this a new category? lets assume so & then correct
+        var newcat = transverseTree(youtube_tree, d); // is this a new category? lets assume so & then correct
 
         if (newcat) {
-            var yelp_category = {
-                "name":d.yelp_category,
+            var youtube_category = {
+                "name":d.youtube_category,
                 "children": [
-                    {"name":"AZ","children":[]},
-                    {"name":"IL","children":[]},
-                    {"name":"NC","children":[]},
-                    {"name":"NV","children":[]},
-                    {"name":"OH","children":[]},
-                    {"name":"PA","children":[]},
-                    {"name":"WI","children":[]}
+                    {"name":"Canada","children":[]},
+                    {"name":"Mexico","children":[]},
+                    {"name":"United States","children":[]},
+                    {"name": "France", "children": []},
+                    {"name": "India", "children": []},
+                    {"name": "Japan", "children": []},
+                    {"name":"United Kingdom","children":[]},
                 ]
             };
-            yelp_tree.children[yelp_tree.children.length] = yelp_category;
-            transverseTree(yelp_tree, d);
+            youtube_tree.children[youtube_tree.children.length] = youtube_category;
+            console.log(youtube_category)
+            console.log(youtube_tree)
+            transverseTree(youtube_tree, d);
         }
     });
 
-    root = d3.hierarchy(yelp_tree)
+    root = d3.hierarchy(youtube_tree)
         .sum(function (d) { return d.reviews; })
         .sort(function(a, b) { return b.value - a.value; });
 
@@ -60,9 +61,7 @@ d3.csv("data/zoomable_sunburst.csv", function(error, data) {
         .style("fill", function(d) { return zsb_color((d.children ? d : d.parent).data.name); })
         .on("click", click)
         .on('mouseover', showZSBDetail)
-        .on('mouseout', hideZSBDetail);        
-        // .append("title")
-        // .text(function(d) { return d.data.name + "\n" + formatNumber(d.value); });
+        .on('mouseout', hideZSBDetail);
 });
 
 /*
@@ -104,11 +103,11 @@ function click(d) {
 function transverseTree(tree, d) {
     var newcat = true;
     tree.children.forEach(function(child) {
-        if (child.name == d.yelp_category) {
+        if (child.name == d.youtube_category) {
             child.children.forEach(function(grandchild) {
                 if(grandchild.name == d.state) {
-                    var yelp_restaurant = {"name":d.name,"reviews":d.reviews};
-                    grandchild.children.push(yelp_restaurant);
+                    var youtube_video = {"name":d.name,"reviews":d.comment_count};
+                    grandchild.children.push(youtube_video);
                     newcat = false; // we matched the category so it's not new
                 }
             })
