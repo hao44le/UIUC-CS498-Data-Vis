@@ -15,11 +15,12 @@ var yScale = d3v3.scale.linear()
 var line_color = d3v3.scale.ordinal().range(["#48A36D",  "#56AE7C",  "#64B98C", "#72C39B", "#80CEAA", "#80CCB3", "#7FC9BD", "#7FC7C6", "#7EC4CF", "#7FBBCF", "#7FB1CF", "#80A8CE", "#809ECE", "#8897CE", "#8F90CD", "#9788CD", "#9E81CC", "#AA81C5", "#B681BE", "#C280B7", "#CE80B0", "#D3779F", "#D76D8F", "#DC647E", "#E05A6D", "#E16167", "#E26962", "#E2705C", "#E37756", "#E38457", "#E39158", "#E29D58", "#E2AA59", "#E0B15B", "#DFB95C", "#DDC05E", "#DBC75F", "#E3CF6D", "#EAD67C", "#F2DE8A"]);  
 var xAxis = d3v3.svg.axis()
     .scale(xScale)
-    .tickFormat(function(n){ return Math.round((n / 100 * 24) - 24) })
+    .tickFormat(function(n){ return (n * 10)/10})
+    // .tickFormat(function(n){ return Math.round((n / 100 * 12) - 12) })
     .orient("bottom"),
     xAxis2 = d3v3.svg.axis() // xAxis for brush slider
     .scale(xScale2)
-    .tickFormat(function(n){ return Math.round((n / 100 * 24) - 24) })
+    .tickFormat(function(n){ return Math.round((n * 10)/10) })
     .orient("bottom");    
 var yAxis = d3v3.svg.axis()
     .scale(yScale)
@@ -64,6 +65,7 @@ d3v3.csv("data/linechart.csv", function(error, data) {
   data.forEach(function(d) { // Make every date in the csv data a javascript date object format
     // d.date = parseDate(d.date);
   });
+
   var categories = line_color.domain().map(function(name) { // Nest the data into an array of objects with new keys
     return {
       name: name, // "name": the csv headers except date
@@ -73,11 +75,11 @@ d3v3.csv("data/linechart.csv", function(error, data) {
           checkin: +(d[name]),
           };
       }),
-      visible: (name === "American New" ? true : false) // "visible": all false except for economy which is true.
+      visible: (name === "Music" ? true : true) // "visible": all false except for economy which is true.
     };
   });
-  xScale.domain([100,796]); // extent = highest and lowest points, domain is data, range is bouding box
-  yScale.domain([0, 3200
+  xScale.domain([1,12]); // extent = highest and lowest points, domain is data, range is bouding box
+  yScale.domain([0, 2382
     //d3v3.max(categories, function(c) { return d3v3.max(c.values, function(v) { return v.rating; }); })
   ]);
   xScale2.domain(xScale.domain()); // Setting a duplicate xdomain for brushing reference later
@@ -194,13 +196,6 @@ d3v3.csv("data/linechart.csv", function(error, data) {
   // Hover line 
   var hoverLineGroup = line_svg.append("g") 
             .attr("class", "hover-line");
-  var hoverLine = hoverLineGroup // Create line with basic attributes
-        .append("line")
-            .attr("id", "hover-line")
-            .attr("x1", 10).attr("x2", 10) 
-            .attr("y1", 0).attr("y2", height + 10)
-            .style("pointer-events", "none") // Stop line interferring with cursor
-            .style("opacity", 1e-6); // Set opacity to zero 
   var hoverDate = hoverLineGroup
         .append('text')
             .attr("class", "hover-text")

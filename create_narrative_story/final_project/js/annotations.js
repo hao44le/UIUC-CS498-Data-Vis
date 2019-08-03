@@ -3,8 +3,8 @@ const bubble_state_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Majority of Reviews",
-    label: "The United Kingdom contains the majority of the YouTube Dataset reviews",
+    title: "Majority of Views",
+    label: "The United Kingdom contains the majority of the YouTube Dataset views",
     wrap: 190
     },
     x: 900,
@@ -22,7 +22,7 @@ const bubble_star_annotations = [
     type: d3.annotationLabel,
     note: {
     title: "Most popular Category",
-    label: "Regardless of country, the MUSIC contains the majority of the YouTube Dataset reviews",
+    label: "Regardless of country, the Music contains the majority of the YouTube Dataset reviews",
     wrap: 190
     },
     x: 100,
@@ -89,26 +89,26 @@ const line_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Weeknight Checkin Spike",
-    label: "Spikes nightly for checkins",
+    title: "Summer view Drop",
+    label: "View drops dramatically in the summer",
     wrap: 190
     },
-    x: 250,
-    y: 125,
-    dy: 0,
+    x: 550,
+    y: 250,
+    dy: 50,
     dx: 0
 },          
 {
     type: d3.annotationLabel,
     note: {
-    title: "Weekend Checkin Spike",
-    label: "Increased spike of checkins over the weekend",
+    title: "Spring View Spike",
+    label: "Increased spike of view over the spring",
     wrap: 190
     },
-    x: 650,
-    y: 200,
-    dy: -100,
-    dx: -150
+    x: 250,
+    y: 50,
+    dy: 50,
+    dx: 0
 }]
 
 const line_makeAnnotations = d3.annotation()
