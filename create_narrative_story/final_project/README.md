@@ -11,17 +11,32 @@ This visualization is an interactive slideshow which takes the user through the 
 As the presentation utilize a preset static canvas of 1024x768 pixels, the browsing size of the interactive representation is at least 1280x800 pixels to suit the encompassing content and scene components.
 
 ## Templates Scene
-The use of CSS and FullPage.js allows for a cohesive template look for the interactive visualization. Each page is transitioned using the same method and text elements are kept the same (font size and family). Additionally there is a page navigation bar on the right side which allows users to skip between different slides. The tooltips which are triggered when a user moves their mouse over the navigation alters the display parameters for each navigation menu item.
-
+The utilization of CSS and FullPage.js takes into account a comprehensive layout for this interactive presentation. Each page is changed
+				utilizing a similar technique and content components are kept the equivalent (text dimension and family). Furthermore there is a page transition bar
+				on the right side which enables users to skip between various slides. The tooltips which are activated when a user moves their
+				mouse over the route modifies the presentation parameters for every navigation menu element.
+				
 ## Annotations
-Annotations have been used in all three visualizations with a similar process of using triggers to change the hidden paramenter of the annotation. For example, the Line Chart Visualization has an initial state of the hidden parameter which controls the display of the annotations set to false. As a user uses the brush bar to trigger changes to the line chart visualization x-axis parameters, it also changes this hidden parameter to true. In turn the annotations disappear until the user resets the brush bar to zero - thus zooming out back to the default visualization parameters.
-
+Annotations have been utilized in every one of the three presentation with a comparative procedure of utilizing triggers to change the hidden parameter of
+				the explanation. For instance, the Line Chart Visualization has an underlying class of the hidden parameter which controls the showcase
+				of the explanations set to false. As a user utilizes the brush bar to trigger changes to the line diagram chart's x-axis
+				parameters, it likewise changes this hidden parameter to true. Last but not the least, the comments vanish until the client resets the brush bar
+				to zero - hence zooming out back to the default presentation parameters.
+		
 ## Parameters and Triggers
-Both parameters and triggers are used in all of the three visualizations. For the Bubble Chart Visualization, parameters for the x,y co-ordinates of each bubble are set to an initial central position for the All Reviews Visualization. As a user selects menu items to chose between All Reviews, Reviews by State and Reviews by Stars, it triggers the change of bubble’s x,y co-ordinates parameter to their respective groupings.
+Both parameters and triggers are utilized in the majority of the three presentations. For the Bubble Chart Visualization, parameters for the
+				x,y co-ordinates of each bubble are set to an default central location for the All Views Visualization. As a user chooses menu
+				things to picked between All Views, Views by Country and Views by Category, it triggers the difference in bubble's x,y co-ordinates
+				parameter to their individual groupings.
 
-In Zoomable Sunburst Visualization, each mouse click on a region is a trigger for the path and arc parameters. By clicking within a region, you can zoom into the data to take a look at the information underneath. Clicking the centre circle will trigger the parameters to return to its values one up in the hierarchy.
-
-For Line Chart Visualization, parameters are set for each Restaurant Category. These parameters are triggered to be updated as the mouse moves over the visualization, providing the user with a snapshot of the amount of check-ins in a given time. A secondary parameter and trigger set is the brush bar below the line chart. This bar allows the user to zoom into the data to show a closer look of the data. By clicking a set space on the brush bar, it triggers the x-axis parameter of the line chart to be updated to a ratio of the same selected section of the brush bar.
+In Zoomable Sunburst Visualization, each mouse click on a district is a trigger for the way and circular segment parameters. By clicking inside
+				an area, you can zoom into the information to investigate the data underneath. Tapping the inside circle will trigger the
+				parameters to come back to its qualities one up in the progressive system.
+		
+For Line Chart Visualization, parameters are set for every Video Category. These parameters are activated to be refreshed as the mouse moves over the presentation, furnishing the client with a preview of the measure of trending videos in a given time. An optional
+				parameter and trigger set is the brush bar underneath the line graph. This bar enables the user to zoom into the information to demonstrate a closer
+				look of the information. By clicking a set space on the brush bar, it triggers the x-pivot parameter of the line diagram to be refreshed to a
+				proportion of the equivalent chose area of the brush bar.
 
 # Reference Materials
 ## Bubble Chart
