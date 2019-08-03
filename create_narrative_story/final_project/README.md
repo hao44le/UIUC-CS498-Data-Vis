@@ -5,13 +5,10 @@ D3.js visualization for CS498 Data Visualization course final project
 This proejct is hosted live on Github Pages at [https://stanleykylee.github.io/cs498-ddv-final](https://stanleykylee.github.io/cs498-ddv-final).
 
 # About the Visualization
-This visualization is an interactive slideshow which takes the user through the Dataset of the 9th Round of the Yelp Academic Dataset Challenge. The dataset itself contains the Yelp reviews and aggregated check-ins over time of 144 thousand businesses located throughout various metropolitans across the globe. This visualization focuses on the data from the United States which includes the following cities: Pittsburgh, Charlotte, Urbana-Champaign, Phoenix, Las Vegas, Madison, Cleveland.
+This visualization is an interactive slideshow which takes the user through the Dataset of the YouTube trending dataset. The dataset itself contains the YouTube video views across the globe. This visualization focuses on the data from the United States, United Kingdom, Canada, France, India, Japan and Mexico
 
 ## Recommended Settings
-As the visualizations use a preset static canvas of 1024x768 pixels, the viewing size of the interactive visualization is at least 1280x800 pixels to accommodate the surrounding text and scene elements.
-
-## Managing the Dataset
-With such a large dataset, creating a visualization with the raw data turned out to be very difficult. The first step for created this visualization was to process the dataset and focus on the data pertaining restaurants in the United States only.
+As the presentation utilize a preset static canvas of 1024x768 pixels, the browsing size of the interactive representation is at least 1280x800 pixels to suit the encompassing content and scene components.
 
 ## Templates Scene
 The use of CSS and FullPage.js allows for a cohesive template look for the interactive visualization. Each page is transitioned using the same method and text elements are kept the same (font size and family). Additionally there is a page navigation bar on the right side which allows users to skip between different slides. The tooltips which are triggered when a user moves their mouse over the navigation alters the display parameters for each navigation menu item.
